@@ -1,0 +1,62 @@
+@use "../modules/mixins" as mxs;
+
+.accordionArticle,
+.accordionArticleIsOpen {
+   width: max(460px, 36%);
+   padding: var(--my-unit-max) var(--my-unit-max) 0px;
+   background-color: var(--my-color-white);
+   border-radius: calc(var(--my-unit-min) * 13);
+
+   
+   .extendable {
+      @include mxs.rowFlex(space-between, center);
+      padding-bottom: calc(var(--my-unit-mid) + 5px);
+      
+
+
+      div {
+         @include mxs.rowFlex(start, center, 10px);
+
+         svg {
+            width: 24px;
+            height: 24px;
+            color: var(--smart-color-yellow);
+         }
+
+         h3 {
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--my-color-greyDark);
+
+            strong {
+               color: var(--my-color-black);
+            }
+         }
+
+      }
+
+      button {
+         background-color: transparent;
+         padding: 3px;
+         border: none;
+
+         svg {
+            color: var(--my-color-black);
+         }
+
+         svg,
+         path {
+            user-select: none;
+            pointer-events: none;
+         }
+      }
+   }
+
+   .description {
+      padding-top: calc(var(--my-unit-mid) + 5px);
+      padding-bottom: var(--my-unit-max);
+      color: var(--my-color-greyDark);
+      letter-spacing: 1px;
+      font-size: 15px;
+   }
+}
