@@ -12,9 +12,11 @@
    .extendableIsOpen {
       @include mxs.rowFlex(space-between, center);
       padding-bottom: calc(var(--my-unit-mid) + 5px);
-
+      transition: margin 500ms linear;
+      
       &.extendableIsOpen {
          border-bottom: 1px solid var(--my-color-greyDark);
+         margin-bottom: 15px;
       }
 
 
@@ -72,11 +74,10 @@
       opacity: 0%;
       max-height: 0px;
       overflow-y: hidden;
-      transition: opacity 1000ms linear, max-height 1000ms linear;
+      transition: opacity 250ms linear, max-height 500ms linear;
 
 
       &.descriptionIsOpen {
-         padding-top: calc(var(--my-unit-mid) + 5px);
          padding-bottom: var(--my-unit-max);
          color: var(--my-color-greyDark);
          letter-spacing: 1px;
