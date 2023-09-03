@@ -7,11 +7,17 @@
    background-color: var(--my-color-white);
    border-radius: calc(var(--my-unit-min) * 13);
 
-   
-   .extendable {
+
+   .extendable,
+   .extendableIsOpen {
       @include mxs.rowFlex(space-between, center);
       padding-bottom: calc(var(--my-unit-mid) + 5px);
-      
+      position: relative;
+
+      &.extendableIsOpen {
+         border-bottom: 1px solid var(--my-color-greyDark);
+      }
+
 
 
       div {
@@ -35,10 +41,18 @@
 
       }
 
-      button {
+      .extendButton,
+      .extendButtonIsOpen {
          background-color: transparent;
          padding: 3px;
          border: none;
+         transition: transform 400ms linear;
+         transform: rotateX(0deg);
+         cursor: pointer;
+
+         &.extendButtonIsOpen {
+            transform: rotateX(180deg);
+         }
 
          svg {
             color: var(--my-color-black);
@@ -50,13 +64,24 @@
             pointer-events: none;
          }
       }
+
+
    }
 
-   .description {
-      padding-top: calc(var(--my-unit-mid) + 5px);
-      padding-bottom: var(--my-unit-max);
-      color: var(--my-color-greyDark);
-      letter-spacing: 1px;
-      font-size: 15px;
+   .description,
+   .descriptionIsOpen {
+      opacity: 0%;
+      max-height: 0px;
+      overflow-y: hidden;
+      transition: height 400ms linear, opacity 400ms linear;
+
+
+      &.descriptionIsOpen {
+         padding-top: calc(var(--my-unit-mid) + 5px);
+         padding-bottom: var(--my-unit-max);
+         color: var(--my-color-greyDark);
+         letter-spacing: 1px;
+         font-size: 15px;
+      }
    }
 }

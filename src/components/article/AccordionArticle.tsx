@@ -17,9 +17,10 @@ import {
 type AccordionArticleProps = {
 	idx: number;
 	info: Tadvantages;
+	handleOpen: (idx: number) => void;
 };
 
-const AccordionArticle: FC<AccordionArticleProps> = ({ info }): ReactElement => {
+const AccordionArticle: FC<AccordionArticleProps> = ({ idx, info, handleOpen }): ReactElement => {
 	const { id, preTitle, title, description, isOpen } = info;
 
 	function setIcon(): ReactNode {
@@ -56,12 +57,14 @@ const AccordionArticle: FC<AccordionArticleProps> = ({ info }): ReactElement => 
 						<strong>{preTitle}</strong> {title}
 					</h3>
 				</div>
-				<button type="button" name="extendButton">
+				<button
+					type="button"
+					name="extendButton"
+					className={"extendButton" + (isOpen ? "IsOpen" : "")}
+					onClick={() => handleOpen(idx)}>
 					<FaChevronDown />
 				</button>
 			</div>
-
-			<hr />
 
 			<p className="description">{description}</p>
 		</article>
