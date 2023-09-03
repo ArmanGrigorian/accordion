@@ -50,7 +50,7 @@ const AccordionArticle: FC<AccordionArticleProps> = ({ idx, info, handleOpen }):
 
 	return (
 		<article className={"accordionArticle" + (isOpen ? "IsOpen" : "")} id={id}>
-			<div className="extendable">
+			<div className={"extendable" + (isOpen ? "IsOpen" : "")}>
 				<div>
 					{setIcon()}
 					<h3>
@@ -66,7 +66,7 @@ const AccordionArticle: FC<AccordionArticleProps> = ({ idx, info, handleOpen }):
 				</button>
 			</div>
 
-			<p className="description">{description}</p>
+			<p className={"description" + (isOpen ? "IsOpen" : "")}>{description}</p>
 		</article>
 	);
 };
